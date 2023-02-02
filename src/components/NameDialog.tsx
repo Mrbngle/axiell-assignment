@@ -7,20 +7,20 @@ export default function NameDialog({
 }) {
     return (
         <div className="name-dialog" data-visible={isVisible}>
-            <div className="container is-max-desktop">
+            <div className=" content box is-max-desktop">
                 <form className="form" onSubmit={onSubmit}>
                     <div className="field">
-                        <label htmlFor="playerName">Your name</label>
+                        <label className="label is-large" htmlFor="playerName">Your name</label>
                     </div>
-                    <div className="control">
+                    <div className="control row">
                         <input
                             name="playerName"
-                            className="is-primary"
+                            className="input is-primary is-medium"
                             type="text"
                             placeholder="Enter your name..."
                         ></input>
+						<button type="submit" className="button is-medium is-primary">Start</button>
                     </div>
-                    <button type="submit">Start</button>
                 </form>
             </div>
         </div>

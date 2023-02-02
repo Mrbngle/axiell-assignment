@@ -36,11 +36,12 @@ export function createBoard() {
 
     nextColumn(1);
 
+	// return result as an array
     return [...board];
 }
 
 function App() {
-	
+
     const [player, setPlayer] = useState("");
     const [board, setBoard] = useState(createBoard());
     const [hasWon, setHasWon] = useState(false);
@@ -59,16 +60,16 @@ function App() {
         if (hasWon) return;
 
         // ensure a unique number
-        const luckyNumber = () => {
+        const luckyNumber = (() => {
             const getNum = (): number => {
                 let num = getRandomInt(1, 90);
                 if (luckyNumbers.includes(num)) return getNum();
                 return num;
             };
             return getNum();
-        };
+        })();
 
-        const number = luckyNumber();
+        const number = luckyNumber;
 
         // update list
         setLuckyNumbers((luckyNumbers) => {
@@ -97,7 +98,7 @@ function App() {
     }
 
     return (
-        <div className="App">
+        <div className="App container">
             <main className="container block box">
                 <NavBar name={player}></NavBar>
                 <BingoBoard

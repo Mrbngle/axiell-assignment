@@ -9,9 +9,16 @@
 	display: none;
 
 	justify-content: center;
-	align-content: center;
+	align-items: center;
 	
 	&[data-visible="true"] {
 		display: flex;
+	}
+
+	form {
+		.row {
+			display: flex;
+			grid-gap: 1rem;
+		}
 	}
 }
