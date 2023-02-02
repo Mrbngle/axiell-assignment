@@ -1,0 +1,17 @@
+.name-dialog {
+	position: fixed;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	background-color: #ddd;
+	z-index: 40;
+	display: none;
+
+	justify-content: center;
+	align-content: center;
+	
+	&[data-visible="true"] {
+		display: flex;
+	}
+}

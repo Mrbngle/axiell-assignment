@@ -1,0 +1,9 @@
+.navbar {
+	display: flex;
+	align-items: center;
+
+	.player-name {
+		flex: 1;
+		text-align: left;
+	}
+}
