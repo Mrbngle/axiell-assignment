@@ -49,7 +49,7 @@ function App() {
     const [count, setCount] = useState(0);
 
     /**
-     * Creates a new random unique number between 1 and 90
+     * Creates a new random unique number between 1 and 75
      * Updates bingo card match count
      * Checks if user has a full bingo card
      *
@@ -62,7 +62,7 @@ function App() {
         // ensure a unique number
         const luckyNumber = (() => {
             const getNum = (): number => {
-                let num = getRandomInt(1, 90);
+                let num = getRandomInt(1, 75);
                 if (luckyNumbers.includes(num)) return getNum();
                 return num;
             };
