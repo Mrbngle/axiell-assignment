@@ -107,19 +107,17 @@ function reduceScoreBoard(
 ) {
     let hasWon = false;
 
-	/**
-	 * This took me a while. Because the ScoreBoard is based of
-	 * the BingoBoard, it kept removing items from the actual board
-	 * as well. This function seems to do the trick.   
-	 */
+    /**
+     * This took me a while. Because the ScoreBoard is based of
+     * the BingoBoard, it kept removing items from the actual board
+     * as well. This function seems to do the trick.
+     */
     const removeValue = (arr: number[], index: number) => {
         return arr.slice(0, index).concat(arr.slice(index + 1));
     };
 
     function findAndRemoveMatch(arr: Board) {
-        
-		arr.forEach((curr, index) => {
-
+        arr.forEach((curr, index) => {
             // find and remove winning item from array
             let idx = curr.indexOf(luckyNumber);
             if (idx > -1) arr[index] = removeValue(curr, idx);
