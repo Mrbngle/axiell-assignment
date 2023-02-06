@@ -2,13 +2,13 @@
 
 	margin-top: 2rem;
 
-	ul {
+	> ul {
 		display: flex;
 		justify-content: center;
 		width: 100%;
 		flex-wrap: wrap;
 
-		li {
+		> li {
 			padding: .2rem;
 		}
 	}
