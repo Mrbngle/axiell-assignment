@@ -22,8 +22,6 @@ export default function BingoBoard({
         });
     };
 
-    drawBoard();
-
     return (
         <section id="bingo-board" className="block">
             <header>

@@ -18,7 +18,7 @@ interface ScoreBoard {
  * Create a bingo board where each subsequent column is represented by
  * a new array containing random numbers within a range of 15
  *
- * @returns number[][]
+ * @returns Board
  */
 function createBingoBoard(): Board {
     const board: number[][] = [];
@@ -155,15 +155,16 @@ function App() {
     const [board, setBoard] = useState<Board>([]);
     const [hasWon, setHasWon] = useState(false);
     const [luckyNumbers, setLuckyNumbers] = useState<number[]>([]);
+	const [buttonActive, setButtonActive] = useState(true);
 
     /**
      * Resets the game
      */
     function newGameHandler() {
         setHasWon(false);
+		setButtonActive(true);
 
         const newBoard = createBoard();
-
         scoreBoard = newBoard.scoreBoard;
         setBoard(newBoard.board);
 
@@ -207,7 +208,12 @@ function App() {
         if (scoreBoard) {
             reduceScoreBoard(scoreBoard, number, (updatedBoard, winner) => {
                 scoreBoard = updatedBoard;
-                if (winner) setHasWon(true);
+                if (winner) {
+					setButtonActive(false);
+					setTimeout(() => {
+						setHasWon(true);
+					}, 3000);
+				}
             });
         }
     }
@@ -229,6 +235,7 @@ function App() {
                     board={[...board.flat()]}
                 ></BingoBoard>
                 <BoardControls
+					buttonActive={buttonActive}
                     rollDice={rollDiceHandler}
                     newGame={newGameHandler}
                 ></BoardControls>
