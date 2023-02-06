@@ -95,10 +95,8 @@ function createScoreBoard(bingoBoard: Board): ScoreBoard {
  * If the user ends up with an empty array (either in columns or rows),
  * he wins!
  *
- * Returns true if user has won.
- *
- * @param scoreBoard
- * @param luckyNumber
+ * As the third argument, a callback function is expected, which will give access 
+ * to the updated scoreboard, and winner status. 
  */
 function reduceScoreBoard(
     scoreBoard: ScoreBoard,
