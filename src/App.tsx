@@ -95,8 +95,8 @@ function createScoreBoard(bingoBoard: Board): ScoreBoard {
  * If the user ends up with an empty array (either in columns or rows),
  * he wins!
  *
- * As the third argument, a callback function is expected, which will give access 
- * to the updated scoreboard, and winner status. 
+ * As the third argument, a callback function is expected, which will give access
+ * to the updated scoreboard, and winner status.
  */
 function reduceScoreBoard(
     scoreBoard: ScoreBoard,
@@ -155,14 +155,14 @@ function App() {
     const [board, setBoard] = useState<Board>([]);
     const [hasWon, setHasWon] = useState(false);
     const [luckyNumbers, setLuckyNumbers] = useState<number[]>([]);
-	const [buttonActive, setButtonActive] = useState(true);
+    const [buttonActive, setButtonActive] = useState(true);
 
     /**
      * Resets the game
      */
     function newGameHandler() {
         setHasWon(false);
-		setButtonActive(true);
+        setButtonActive(true);
 
         const newBoard = createBoard();
         scoreBoard = newBoard.scoreBoard;
@@ -204,15 +204,19 @@ function App() {
         });
 
         if (scoreBoard) {
-            reduceScoreBoard(scoreBoard, luckyNumber, (updatedBoard, winner) => {
-                scoreBoard = updatedBoard;
-                if (winner) {
-					setButtonActive(false);
-					setTimeout(() => {
-						setHasWon(true);
-					}, 3000);
-				}
-            });
+            reduceScoreBoard(
+                scoreBoard,
+                luckyNumber,
+                (updatedBoard, winner) => {
+                    scoreBoard = updatedBoard;
+                    if (winner) {
+                        setButtonActive(false);
+                        setTimeout(() => {
+                            setHasWon(true);
+                        }, 3000);
+                    }
+                }
+            );
         }
     }
 
@@ -233,7 +237,7 @@ function App() {
                     board={[...board.flat()]}
                 ></BingoBoard>
                 <BoardControls
-					buttonActive={buttonActive}
+                    buttonActive={buttonActive}
                     rollDice={rollDiceHandler}
                     newGame={newGameHandler}
                 ></BoardControls>
