@@ -198,15 +198,13 @@ function App() {
             return getNum();
         })();
 
-        const number = luckyNumber;
-
         // update list
         setLuckyNumbers((luckyNumbers) => {
-            return [...luckyNumbers, number];
+            return [...luckyNumbers, luckyNumber];
         });
 
         if (scoreBoard) {
-            reduceScoreBoard(scoreBoard, number, (updatedBoard, winner) => {
+            reduceScoreBoard(scoreBoard, luckyNumber, (updatedBoard, winner) => {
                 scoreBoard = updatedBoard;
                 if (winner) {
 					setButtonActive(false);
